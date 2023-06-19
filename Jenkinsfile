@@ -1,39 +1,38 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage("Checkout the code"){
-            steps{
-                sh 'git clone https://github.com/Ramkhushi/java-code1.git'
-            }
-            
+    stages {
+        stage("Checkout") {   
+            steps {               	 
+                git branch: 'master', url: 'https://github.com/Ramkhushi/java-code1.git'        	 
+            }    
         }
-        stage('mvn compile') {
+        stage('Maven Clean') {
             steps {
-                sh 'mvn compile'
+                sh "mvn clean"  	 
             }
         }
-        stage('mvn test'){
+        stage('Maven Build') {
             steps {
-                sh 'mvn test'
+                sh "mvn compile"  	 
             }
         }
-        stage('mvn package'){
+        stage("Unit Test") {          	 
+            steps {  	 
+                sh "mvn test"          	 
+            }
+        }
+        stage("Maven Package") {
             steps {
-             sh 'mvn package'
+                sh "mvn package"
             }
-            
         }
-
-    }
-    post{
-        always{
-            echo "========always========"
-        }
-        success{
-            echo "========pipeline executed successfully ========"
-        }
-        failure{
-            echo "========pipeline execution failed========"
-        }
+        stage("Deploy On Server") {          	 
+            steps {  	 
+                deploy adapters: [admin1(credentialsId: 'admin1', path: '', url: 'http://34.125.35.76:8080/')], contextPath: '/app', war: '**/target/*.war'         	 
+            }
+        }  	
     }
 }
+ }
+}
+
