@@ -26,13 +26,16 @@ pipeline {
                 sh "mvn package"
             }
         }
-        stage("Deploy On Server") {          	 
-            steps {  	 
-                deploy adapters: [admin1(credentialsId: 'admin1', path: '', url: 'http://34.125.35.76:8080/')], contextPath: '/app', war: '**/target/*.war'         	 
+        stage('deploy to tomcat') {
+            steps {
+              deploy adapters: [tomcat9(credentialsId: 'admin1', path: '', url: 'http://34.125.35.76:8080')], contextPath: 'app', war: '\'**.war\''
             }
-        }  	
+        }
     }
-}
- }
-}
+}   
+
+
+ 
+ 
+
 
