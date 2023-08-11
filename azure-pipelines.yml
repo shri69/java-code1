@@ -24,5 +24,6 @@ steps:
     sonarQubeRunAnalysis: false
     
 - script:  ls -ltr $(Build.ArtifactStagingDirectory)
+- script:  ls -ltr $(Build.SourcesDirectory)
     
   displayName: 'Run a multi-line script'
