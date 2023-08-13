@@ -27,5 +27,5 @@ steps:
       SourceFolder: '$(agent.builddirectory)'
       Contents: '**'
       TargetFolder: '$(build.artifactstagingdirectory)'
-- script: ls -ltr $(build.artifactstagingdirectory)/target/*.war
+- script: ls -ltr $(build.artifactstagingdirectory)/target/*
   displayName: check all files
