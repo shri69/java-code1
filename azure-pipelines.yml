@@ -27,5 +27,9 @@ steps:
       SourceFolder: '$(agent.builddirectory)'
       Contents: '**'
       TargetFolder: '$(build.artifactstagingdirectory)'
-- script: ls -ltr $(build.artifactstagingdirectory)/target/*
-  displayName: check all files
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'myfiles'
+    publishLocation: 'Container'
