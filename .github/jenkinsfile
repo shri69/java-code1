@@ -18,6 +18,11 @@ pipeline{
                     sh 'mvn test'
                 }
             }
+            stage("Maven Package"){
+                steps{
+                    sh 'mvn package'
+                }
+            }
             post{
                 always{
                     echo "========always========"
