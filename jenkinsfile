@@ -22,14 +22,14 @@ pipeline{
                 }
             }
           
-            post{
-                always{
+    post{
+        always{
                     echo "========always========"
                 }
-                success{
+        success{
                     echo "========A executed successfully========"
                 }
-                failure{
+        failure{
                     echo "========A execution failed========"
                 }
             }
