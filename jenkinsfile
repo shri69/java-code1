@@ -21,6 +21,7 @@ pipeline{
                     sh 'mvn package'
                 }
             }
+            stage("Post"){
             post{
                 always{
                     echo "========always========"
@@ -34,3 +35,4 @@ pipeline{
             }
         }
     }
+}
