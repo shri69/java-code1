@@ -6,11 +6,25 @@ pipeline{
                 sh 'git clone https://github.com/shri69/java-code1'
             }
         }
+        stage("Navigate to the Repo"){
+             steps{
+                sh 'cd ${WORKSPACE}/java-code1'
+
+        }
+
+        }
+       
             
-            stage("Maven Package"){
+            stage("Maven compile"){
                 steps{
                     sh 'mvn package'
                 }
             }
+            stage("Maven Package"){
+                steps{
+                    sh 'mvn compile'
+                }
+            }
+            
     }
 }
