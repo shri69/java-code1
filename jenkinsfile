@@ -39,6 +39,7 @@ pipeline{
             steps {
               sh "ls"
               sh "cd target"
+              sh "ls"
             }
         }
             
