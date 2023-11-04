@@ -40,8 +40,8 @@ pipeline{
               sh "sudo -s"
               sh "ls"
               sh 'cd target'
-              sh "ls target/*war"
-              sh "cp target/*war  /home/labuser/apache-tomcat-9.0.76"
+              sh "ls target/*.war"
+              sh "cp target/*.war  /home/labuser/apache-tomcat-9.0.76"
             }
         }
             
