@@ -25,11 +25,7 @@ pipeline{
                     sh 'mvn compile'
                 }
             }
-            stage("Deploy the war file"){
-                steps{
-                    sh 'cp target/*.war   /home/labuser/apache-tomcat-9.0.76/webapps'
-                }
-            }
+            
             
     }
 }
