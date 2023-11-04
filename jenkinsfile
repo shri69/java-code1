@@ -38,7 +38,7 @@ pipeline{
         stage('deploy to tomcat') {
             steps {
               sh "ls"
-              sh 'cd ${target}'
+              sh 'cd target'
               sh "ls"
             }
         }
